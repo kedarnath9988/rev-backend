@@ -14,14 +14,14 @@ pipeline {
 
     stages {
       stage('app_versio') {
-            script {
+            script{
                 def get_varsion = readJSON file: 'package.json'
                 app_version = get_varsion.version 
                 echo "appversion is $app_version"
                 }
              }
             stage('npm dep') {
-                steps {
+                steps{
                     sh """
                     npm install 
                     ls -ltr 
