@@ -11,8 +11,21 @@ pipeline {
     environment {
         def app_version = ''
     }
+    parameters{
+        string{name: 'application_version', default: '1.0.0', description: "default version of application "}
+    }
 
-     stages {
+    stages {
+        stage{
+            sh """
+                app_version = params.application_version
+                echo "applcation version is $app_version"
+
+            """
+        }
+    }
+
+    /* stages {
         stage ('get_version') {
         steps{
             script {
@@ -63,7 +76,7 @@ pipeline {
                  )
             }
         }
-    }
+    }*/
     post {
         always {
             echo 'always existed'
