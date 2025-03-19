@@ -20,7 +20,7 @@ pipeline {
                 echo "appversion is $app_version"
                 }
              }
-            satge('downlode_dep') {
+            stage('downlode_dep') {
                 input{
 
                 }
