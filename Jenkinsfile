@@ -12,7 +12,7 @@ pipeline {
         def app_version = ''
     }
 
-    stages {
+    stages{
       stage("hello"){
         steps{
             sh """
