@@ -12,31 +12,28 @@ pipeline {
         def app_version = ''
     }
 
-    stages{
-      stage("hello"){
-        steps{
-            sh """
-            echo this is hello 
-            """
+     stages {
+        stage('Dev') {
+            steps {
+                sh """
+                echo this is build
+                """
+            }
         }
-      }
-
-      stage("hello"){
-        steps{
-            sh """
-            echo this is hello 
-            """
+        stage('QA') {
+            steps {
+                sh """
+                echo this is QA
+                """
+            }
         }
-      }
-
-      stage("hello"){
-        steps{
-            sh """
-            echo this is hello 
-            """
+        stage('UAT') {
+            steps {
+                sh """
+                echo this is UAT
+                """
+            }
         }
-      }
-
     }
     post {
         always {
