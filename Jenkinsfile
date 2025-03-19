@@ -42,9 +42,25 @@ pipeline {
         }
         stage ('Nexus Artifact Uploader') {
             steps {
-                sh """
-                echo this is Nexus Artifact Uploader
-                """
+                script {                  
+                    sh '
+                    '''
+                }
+                nexusArtifactUploader(
+                    nexusVersion: 'nexus3',
+                    protocol: 'https',
+                    nexusUrl: '',
+                    groupId: 'expense',
+                    version: "$app_version",
+                    credentialsId: "nexus3",
+                    repository: 'maven-releases',
+                    artifacts: [
+                        [artifactId: 'backend',
+                         classifier: '',
+                         file: 'src/main/resources/spots/spots-$VERSION.zip',
+                         type: 'zip']
+                    ]
+                 )
             }
         }
     }

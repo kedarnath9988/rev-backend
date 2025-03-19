@@ -1,0 +1,35 @@
+pipeline {
+    // printing the appversion 
+    agent {
+        label 'backend-01'
+    }
+    options {
+        timeout(time:30, unit:'MINUTES')
+        disableConcurrentBuilds()
+        ansiColor('xterm')
+    }
+
+    environment {
+        def app_version = ''
+    }
+
+    parameters {
+        string(name: 'Appliation_version', defaultValue: '1.0.0', description: 'default applicarion version ')
+
+    }
+
+    stages{
+        stage('read_varsion'){
+              app_version = params.Appliation_version
+
+        }
+    }
+
+    post{
+        always{
+            echo 'done '
+        }
+    }
+
+
+}
