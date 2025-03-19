@@ -13,7 +13,7 @@ pipeline {
     }
 
     stages {
-      stag("hello"){
+      stage("hello"){
         steps{
             sh """
             echo this is hello 
