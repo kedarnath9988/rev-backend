@@ -12,11 +12,11 @@ pipeline {
         def app_version = ''
     }
     parameters{
-        string(name: 'application_version', default: '1.0.0', description: "default version of application ")
+        string(name: 'application_version', defaultValue: '1.0.0', description: "default version of application ")
     }
 
     stages {
-        stage{
+        stage('app'){
             sh """
                 app_version = params.application_version
                 echo "applcation version is $app_version"
