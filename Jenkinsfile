@@ -12,7 +12,7 @@ pipeline {
         def app_version = ''
     }
     parameters{
-        string{name: 'application_version', default: '1.0.0', description: "default version of application "}
+        string(name: 'application_version', default: '1.0.0', description: "default version of application ")
     }
 
     stages {
