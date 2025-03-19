@@ -3,16 +3,16 @@ pipeline {
         label 'backend-01'
     }
     options {
-        timeout(time:30, units:'MINUTES')
-        diableconcarentbuils()
-        ansicolour('xterm')
+        timeout(time:30, unit:'MINUTES')
+        disableConcurrentBuilds()
+        ansiColor('xterm')
     }
 
     environment {
         def app_version = ''
     }
 
-    satges {
+    stages {
         stage('get_varsion'){
             script{
                 def get_varsion = readJSON file: 'package.json'
