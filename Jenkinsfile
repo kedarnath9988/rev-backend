@@ -13,7 +13,7 @@ pipeline {
     }
 
     stages {
-        stage('get_version') {
+      /*  stage('get_version') {
             script{
                 def get_varsion = readJSON file: 'package.json'
                 app_version = get_varsion.version 
@@ -35,6 +35,22 @@ pipeline {
                 zip -r backend-$app_version.zip -x Jenkinsfile -x backend-$app_version.zip
 
                 """
+            }*/
+
+            stage('dev'){
+                steps{
+                    sh """ 
+                    echo this is Dev
+                    """
+                }
+            }
+
+            stage('QA'){
+                steps{
+                    sh """ 
+                    echo this is Dev
+                    """
+                }
             }
 
 
