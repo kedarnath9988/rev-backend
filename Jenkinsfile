@@ -40,6 +40,13 @@ pipeline {
                 """
             }
         }
+        stage ('Nexus Artifact Uploader') {
+            steps {
+                sh """
+                echo this is Nexus Artifact Uploader
+                """
+            }
+        }
     }
     post {
         always {
