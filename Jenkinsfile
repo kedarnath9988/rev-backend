@@ -34,7 +34,7 @@ pipeline {
             steps {
                 sh """
                 
-                zip -r backend-${app_version}.zip -x Jenkinsfile -x backend-${app_version}.zip
+                zip -q -r backend-${app_version}.zip -x Jenkinsfile -x backend-${app_version}.zip
 
                 """
             }
@@ -43,7 +43,7 @@ pipeline {
     post {
         always {
             echo 'always existed'
-            deleteDir()
+            
         }
         success {
             echo "pipeline successful"
