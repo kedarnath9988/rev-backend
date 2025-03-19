@@ -19,8 +19,8 @@ pipeline {
         stage ('app') {
         steps{
             sh """
-                app_version = params.application_version
-                echo "application $app_version"
+                echo "application version is ${params.application_version}"
+
             """
         }
         }
