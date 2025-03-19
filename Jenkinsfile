@@ -13,15 +13,15 @@ pipeline {
     }
 
     stages {
-      stage('get_version'){
-            script{
+      stage('get_version') {
+            script {
                 def get_varsion = readJSON file: 'package.json'
                 app_version = get_varsion.version 
                 echo "appversion is $app_version"
                 }
              }
-            stage('downlode dep'){
-                steps{
+            stage('downlode dep') {
+                steps {
                     sh """
                     npm install 
                     ls -ltr 
@@ -30,7 +30,7 @@ pipeline {
                 }
 
             }
-           stage('build'){
+           stage('build') {
                 sh """
                 zip -r backend-$app_version.zip -x Jenkinsfile -x backend-$app_version.zip
 
