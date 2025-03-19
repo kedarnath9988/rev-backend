@@ -22,7 +22,7 @@ pipeline {
             }
             }
         }
-        stage ('install dep') {
+      /*  stage ('install dep') {
             steps {
                 sh """
                 npm install 
@@ -38,7 +38,7 @@ pipeline {
 
                 """
             }
-        }
+        }*/
     }
     post {
         always {
