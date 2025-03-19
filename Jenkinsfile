@@ -13,7 +13,7 @@ pipeline {
     }
 
     stages {
-      /stage('get_version'){
+      stage('get_version'){
             script{
                 def get_varsion = readJSON file: 'package.json'
                 app_version = get_varsion.version 
