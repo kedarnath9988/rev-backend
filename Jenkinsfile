@@ -14,10 +14,12 @@ pipeline {
 
      stages {
         stage ('get_version') {
+        steps{
             script {
               def   packege_ver = readJSON file: 'package.json'
               app_version = packege_ver.version
               echo "app version is $app_version"
+            }
             }
         }
         stage ('install dep') {
