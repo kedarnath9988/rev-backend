@@ -34,7 +34,7 @@ pipeline {
             steps {
                 sh """
                 
-                zip -q -r backend-${app_version}.zip /  -x Jenkinsfile -x backend-${app_version}.zip
+                zip -q -r backend-${app_version}.zip *  -x Jenkinsfile -x backend-${app_version}.zip
 
                 """
             }
