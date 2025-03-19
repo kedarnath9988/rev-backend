@@ -13,24 +13,27 @@ pipeline {
     }
 
      stages {
-        stage('Dev') {
+        stage('get_version') {
+            script {
+              def   packege_ver = readJSON file: 'package.json'
+              app_version = packege_ver.version
+              echo "app version is $app_version"
+            }
+        }
+        stage('install dep') {
             steps {
                 sh """
-                echo this is build
+                npm install 
+                ls -ltr 
                 """
             }
         }
-        stage('QA') {
+        stage('build file ') {
             steps {
                 sh """
-                echo this is QA
-                """
-            }
-        }
-        stage('UAT') {
-            steps {
-                sh """
-                echo this is UAT
+                
+                zip -r backend-${app_version}.zip -x Jenkinsfile -x backend-${app_version}.zip
+
                 """
             }
         }
