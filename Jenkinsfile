@@ -21,6 +21,22 @@ pipeline {
         }
       }
 
+      stage("hello"){
+        steps{
+            sh """
+            echo this is hello 
+            """
+        }
+      }
+
+      stage("hello"){
+        steps{
+            sh """
+            echo this is hello 
+            """
+        }
+      }
+
     }
     post {
         always {
